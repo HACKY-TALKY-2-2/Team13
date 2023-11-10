@@ -1,6 +1,8 @@
 package com.around.table.controller.owner;
 
+import com.around.table.domain.owner.request.SignInForm;
 import com.around.table.domain.owner.request.SignUpForm;
+import com.around.table.domain.owner.responce.OwnerInfoForm;
 import com.around.table.service.owner.OwnerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,8 +30,8 @@ public class OwnerInfoController {
 
     @ApiOperation(value = "로그인")
     @PostMapping("/sign-in")
-    public ResponseEntity signIn(@RequestBody SignUpForm signUpForm) {
-        return ownerService.signUp(signUpForm);
+    public ResponseEntity<OwnerInfoForm> signIn(@RequestBody SignInForm signInForm) {
+        return ownerService.signIn(signInForm);
     }
 
 }

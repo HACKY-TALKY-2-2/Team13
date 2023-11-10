@@ -1,2 +1,4 @@
-package com.around.table.service.times;public class TimesService {
+package com.around.table.service.times;
+
+public interface TimesService {
 }

@@ -1,2 +1,12 @@
-package com.around.table.service.menu;public class MenuSerivceImpl {
+package com.around.table.service.menu;
+
+import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Entity;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class MenuServiceImpl implements MenuService {
 }

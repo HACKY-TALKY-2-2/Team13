@@ -1,2 +1,4 @@
-package com.around.table.service.menu;public class MenuService {
+package com.around.table.service.menu;
+
+public interface MenuService {
 }

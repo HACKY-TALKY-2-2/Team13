@@ -4,10 +4,10 @@ import com.around.table.domain.owner.request.SignInForm;
 import com.around.table.domain.owner.request.SignUpForm;
 import org.springframework.http.ResponseEntity;
 
-public interface OwnerService {
+public interface  OwnerService {
 
     ResponseEntity signUp(SignUpForm signUpForm);
 
-    ResponseEntity SignIn(SignInForm signInForm);
+    ResponseEntity signIn(SignInForm signInForm);
 
 }

@@ -6,7 +6,6 @@ import com.around.table.domain.owner.request.SignUpForm;
 import com.around.table.domain.owner.responce.OwnerInfoForm;
 import com.around.table.entity.Owner;
 import com.around.table.service.store.StoreService;
-import com.around.table.validator.StoreValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,6 @@ public class OwnerServiceImpl implements OwnerService {
 
     private final OwnerRepository ownerRepository;
     private final StoreService storeService;
-    private StoreValidator storeValidator = new StoreValidator();
 
     @Override
     public ResponseEntity signUp(SignUpForm signUpForm) {
@@ -41,13 +39,12 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public ResponseEntity SignIn(SignInForm signInForm) {
+    public ResponseEntity<OwnerInfoForm> signIn(SignInForm signInForm) {
         Optional<Owner> owner = Optional.ofNullable(ownerRepository.findByOwnerId(signInForm.getOwnerId()));
         OwnerInfoForm ownerInfoForm = new OwnerInfoForm();
 
         if (signInForm.getPassword().equals(owner.get().getOwnerPassword())) {
             Long storeId = storeService.getStoreId(owner.get().getOwnerKey());
-            storeValidator.isValidStore(storeId);
 
             ownerInfoForm = OwnerInfoForm.builder()
                     .ownerId(owner.get().getOwnerKey())

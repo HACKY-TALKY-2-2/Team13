@@ -1,13 +1,11 @@
 package com.around.table.domain.owner.responce;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
+@RequiredArgsConstructor
 @Builder
 public class OwnerInfoForm {
 

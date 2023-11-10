@@ -6,20 +6,21 @@ import org.hibernate.annotations.Entity;
 import javax.persistence.*;
 import java.time.LocalTime;
 
-@Entity
 @Table(name = "times")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
+@Entity
 public class Times {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long timesId;
 
     @ManyToOne
     @JoinColumn(name = "storeId", nullable = false)
-    private Store store;
+    private Store storeId;
 
     @Column(nullable = false, columnDefinition = "INT UNSIGNED")
     private Integer dayOfWeek; // 0: Monday, 1: Tuesday, ..., 6: Sunday

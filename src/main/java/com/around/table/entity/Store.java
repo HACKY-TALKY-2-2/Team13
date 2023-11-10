@@ -23,7 +23,7 @@ public class Store {
     @Column(length = 20, nullable = false)
     private String storeName;
 
-    @Column(length = 150, nullable=false)
+    @Column(length = 150, nullable = false)
     private String address;
 
     @Column(nullable = false)
@@ -36,7 +36,7 @@ public class Store {
     private String imagePath;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="ownerKey")
-    private Owner owner;
+    @JoinColumn(name = "ownerKey")
+    private Owner ownerKey;
 
 }

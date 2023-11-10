@@ -31,5 +31,5 @@ public class Menu {
 
     @ManyToOne
     @JoinColumn(name="storeId")
-    private Store store;
+    private Store storeId;
 }
