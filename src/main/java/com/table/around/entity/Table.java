@@ -9,7 +9,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@jakarta.persistence.Table(name = "table")
+@jakarta.persistence.Table(name = "table_mng")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -30,5 +30,6 @@ public class Table {
     private Boolean isAvailable;
 
     @ManyToOne
-    @JoinColumn(name="storeId")
-    private Store store;}
+    @JoinColumn(name = "storeId")
+    private Store store;
+}
