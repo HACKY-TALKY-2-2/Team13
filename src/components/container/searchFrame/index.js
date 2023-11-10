@@ -15,6 +15,7 @@ function SearchFrame({ onSearchStoreInfoClick }) {
             <SearchStoreInfo onClick={onSearchStoreInfoClick} />
             <SearchStoreInfo onClick={onSearchStoreInfoClick} />
             <SearchStoreInfo onClick={onSearchStoreInfoClick} />
+            <SearchStoreInfo onClick={onSearchStoreInfoClick} />
         </div>
     );
 }

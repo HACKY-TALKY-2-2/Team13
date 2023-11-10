@@ -1,0 +1,36 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "shopname": "대우부대찌개",
+            "latitude": 37.502901,
+            "longitude": 127.035195,
+            "address": "서울특별시 서초구 테헤란로25길 34",
+            "point": 4.5
+        },
+        {
+            "id": 2,
+            "shopname": "삼백집",
+            "latitude": 37.5018,
+            "longitude": 127.0266,
+            "address": "서울특별시 서초구역삼동 677-12",
+            "point": 4.5
+        },
+        {
+            "id": 3,
+            "shopname": "고갯마루집",
+            "latitude": 37.5018,
+            "longitude": 127.0266,
+            "address": "서울특별시 서초구 역삼동 논현로94길 15",
+            "point": 4.5
+        },
+        {
+            "id": 4,
+            "shopname": "만이한상",
+            "latitude": 37.5018,
+            "longitude": 127.0266,
+            "address": "서울특별시 서초구 역삼1동 테헤란로13길 22",
+            "point": 4.5
+        }
+    ]
+}

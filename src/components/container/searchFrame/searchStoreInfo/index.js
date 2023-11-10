@@ -1,4 +1,4 @@
-function SearchStoreInfo({ onClick }) {
+function SearchStoreInfo({ onClick, shopname, point, address }) {
     return (
         <div
             onClick={onClick}
@@ -21,11 +21,11 @@ function SearchStoreInfo({ onClick }) {
                     color: '#000',
                 }}
             >
-                <span>식당 이름</span>
+                <span>식당 이름 {shopname}</span>
                 <br />
-                <span>평점</span>
+                <span>평점 {point}</span>
                 <br />
-                <span>주소</span>
+                <span>주소 {address}</span>
                 <br />
                 <span>영업 시간</span>
             </p>

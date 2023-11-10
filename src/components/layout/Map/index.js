@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import locationData from './mock.json';
 
 const { kakao } = window;
 
@@ -23,6 +24,17 @@ function Map() {
             // 지도 생성
             const map = new kakao.maps.Map(container, options);
 
+            // 위치 데이터를 순회하며 마커 생성
+            locationData.locations.forEach((location) => {
+                const position = new kakao.maps.LatLng(
+                    location.latitude,
+                    location.longitude
+                );
+                new kakao.maps.Marker({
+                    map: map,
+                    position: position,
+                });
+            });
             // 마커 생성 및 지도에 추가
             new kakao.maps.Marker({
                 map: map,
