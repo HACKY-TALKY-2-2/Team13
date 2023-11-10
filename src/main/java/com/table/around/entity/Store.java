@@ -1,4 +1,4 @@
-package com.example.hackexercise.entity;
+package com.table.around.entity;
 
 import java.util.List;
 import jakarta.persistence.*;
