@@ -3,30 +3,29 @@ import HomeButton from '../../components/homeButton';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { MultiSectionDigitalClock } from "@mui/x-date-pickers/MultiSectionDigitalClock";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { MultiSectionDigitalClock } from '@mui/x-date-pickers/MultiSectionDigitalClock';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import RestaurantSearch from '../../components/container/addressSearch/RestaurantSearch';
 
-
 const OwnerRegister = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailDomain, setEmailDomain] = useState("");
-  const [shopName, setShopName] = useState("");
-  const [address, setAddress] = useState("");
-  const [menus, setMenus] = useState([""]);
-  const [prices, setPrices] = useState([0]);
-  const [numMenus, setNumMenus] = useState(1);
-  const [seatsPerTable, setSeatsPerTable] = useState([0]);
-  const [numTablesPerGroup, setNumTablesPerGroup] = useState([0]);
-  const [numTableGroups, setNumTableGroups] = useState(1);
-  const [page, setPage] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [triggerSearch, setTriggerSearch] = useState(false); // 준호 추가 코드
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [emailDomain, setEmailDomain] = useState('');
+    const [shopName, setShopName] = useState('');
+    const [address, setAddress] = useState('');
+    const [menus, setMenus] = useState(['']);
+    const [prices, setPrices] = useState([0]);
+    const [numMenus, setNumMenus] = useState(1);
+    const [seatsPerTable, setSeatsPerTable] = useState([0]);
+    const [numTablesPerGroup, setNumTablesPerGroup] = useState([0]);
+    const [numTableGroups, setNumTableGroups] = useState(1);
+    const [page, setPage] = useState(0);
+    const [hour, setHour] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [triggerSearch, setTriggerSearch] = useState(false); // 준호 추가 코드
 
     const handleShopNameChange = (e) => {
         setShopName(e.target.value);
@@ -60,216 +59,258 @@ const OwnerRegister = () => {
     };
     // 각각의 input에 대해서 나중에 props 달기
 
-  const handleSeatsPerTableChange = (index, value) => {
-    const newSeatsPerTable = [...seatsPerTable];
-    newSeatsPerTable[index] = value;
-    setSeatsPerTable(newSeatsPerTable);
-  };
+    const handleSeatsPerTableChange = (index, value) => {
+        const newSeatsPerTable = [...seatsPerTable];
+        newSeatsPerTable[index] = value;
+        setSeatsPerTable(newSeatsPerTable);
+    };
 
-  const addSeatsPerTable = () => {
-    setSeatsPerTable([...seatsPerTable, 0]); // Add a new menu with an empty string
-  };
+    const addSeatsPerTable = () => {
+        setSeatsPerTable([...seatsPerTable, 0]); // Add a new menu with an empty string
+    };
 
-  const handleNumTablesPerGroupChange = (index, value) => {
-    const newNumTablesPerGroup = [...numTablesPerGroup];
-    newNumTablesPerGroup[index] = value;
-    setNumTablesPerGroup(newNumTablesPerGroup);
-  };
+    const handleNumTablesPerGroupChange = (index, value) => {
+        const newNumTablesPerGroup = [...numTablesPerGroup];
+        newNumTablesPerGroup[index] = value;
+        setNumTablesPerGroup(newNumTablesPerGroup);
+    };
 
-  const addNumTablesPerGroup = () => {
-    setNumTablesPerGroup([...numTablesPerGroup, 0]); // Add a new menu with an empty string
-  };
-  // 각각의 input에 대해서 나중에 props 달기
-  return (
-    <>
-      <HomeButton />
-      <BackgroundCircle />
-      <RegisterFormContainer>
-        <RegisterFlex>
-          {page === 0 ? (
-            <>
-              <FieldWrapper>
-                <Title>ID</Title>
-                <InputsWrapper>
-                  <BigInput
-                    placeholder="ID를 입력해 주세요."
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  ></BigInput>
-                  <VerifyButton>중복 확인</VerifyButton>
-                </InputsWrapper>
-              </FieldWrapper>
-              <FieldWrapper>
-                <Title>비밀번호</Title>
-                <InputsWrapper>
-                  <BigInput
-                    placeholder="비밀번호를 입력해 주세요."
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  ></BigInput>
-                </InputsWrapper>
-              </FieldWrapper>
-              <FieldWrapper>
-                <Title>성명</Title>
-                <InputsWrapper>
-                  <BigInput
-                    placeholder="이름을 입력해 주세요."
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  ></BigInput>
-                </InputsWrapper>
-              </FieldWrapper>
-              <FieldWrapper>
-                <Title>E-MAIL</Title>
-                <InputsWrapper>
-                  <SmallInput
-                    placeholder="이메일을 입력해 주세요."
-                    type="text"
-                    onChange={(e) => setEmail(e.target.value)}
-                  ></SmallInput>
-                  <FixedText style={{ "font-size": "30px" }}>@</FixedText>
-                  <CustomSelect
-                    size="lg"
-                    value={emailDomain}
-                    onChange={(e) => {
-                      setEmailDomain(e.target.value);
-                    }}
-                  >
-                    <option>gmail.com</option>
-                    <option>naver.com</option>
-                    <option>daum.net</option>
-                    <option>직접 입력</option>
-                  </CustomSelect>
-                  <SmallerInput
-                    placeholder="직접 입력"
-                    type="text"
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={["gmail.com", "naver.com", "daum.net"].includes(
-                      emailDomain
+    const addNumTablesPerGroup = () => {
+        setNumTablesPerGroup([...numTablesPerGroup, 0]); // Add a new menu with an empty string
+    };
+    // 각각의 input에 대해서 나중에 props 달기
+    return (
+        <>
+            <HomeButton />
+            <BackgroundCircle />
+            <RegisterFormContainer>
+                <RegisterFlex>
+                    {page === 0 ? (
+                        <>
+                            <FieldWrapper>
+                                <Title>ID</Title>
+                                <InputsWrapper>
+                                    <BigInput
+                                        placeholder="ID를 입력해 주세요."
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) =>
+                                            setUsername(e.target.value)
+                                        }
+                                    ></BigInput>
+                                    <VerifyButton>중복 확인</VerifyButton>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>비밀번호</Title>
+                                <InputsWrapper>
+                                    <BigInput
+                                        placeholder="비밀번호를 입력해 주세요."
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
+                                    ></BigInput>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>성명</Title>
+                                <InputsWrapper>
+                                    <BigInput
+                                        placeholder="이름을 입력해 주세요."
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
+                                    ></BigInput>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>E-MAIL</Title>
+                                <InputsWrapper>
+                                    <SmallInput
+                                        placeholder="이메일을 입력해 주세요."
+                                        type="text"
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                    ></SmallInput>
+                                    <FixedText style={{ 'font-size': '30px' }}>
+                                        @
+                                    </FixedText>
+                                    <CustomSelect
+                                        size="lg"
+                                        value={emailDomain}
+                                        onChange={(e) => {
+                                            setEmailDomain(e.target.value);
+                                        }}
+                                    >
+                                        <option>gmail.com</option>
+                                        <option>naver.com</option>
+                                        <option>daum.net</option>
+                                        <option>직접 입력</option>
+                                    </CustomSelect>
+                                    <SmallerInput
+                                        placeholder="직접 입력"
+                                        type="text"
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                        disabled={[
+                                            'gmail.com',
+                                            'naver.com',
+                                            'daum.net',
+                                        ].includes(emailDomain)}
+                                        style={{ 'margin-left': '2%' }}
+                                    ></SmallerInput>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <Button onClick={() => setPage(1)}>
+                                다음 페이지
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <FieldWrapper>
+                                <Title>상호명</Title>
+                                <InputsWrapper>
+                                    <BigInput
+                                        placeholder="식당의 상호, 식당의 이름을 작성해 주세요."
+                                        type="text"
+                                        value={shopName}
+                                        onChange={(e) =>
+                                            setShopName(e.target.value)
+                                        }
+                                    ></BigInput>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>주소</Title>
+                                <InputsWrapper>
+                                    <BigInput
+                                        placeholder="식당의 위치를 작성해 주세요."
+                                        type="text"
+                                        value={address}
+                                        onChange={handleAddressChange}
+                                    ></BigInput>
+                                    <RestaurantSearch
+                                        keyword={address}
+                                        triggerSearch={triggerSearch}
+                                        setTriggerSearch={setTriggerSearch}
+                                    />
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>메뉴</Title>
+                                {[...Array(numMenus).keys()].map((index) => (
+                                    <InputsWrapper key={index}>
+                                        <SmallInput
+                                            placeholder="메뉴를 입력하세요."
+                                            type="text"
+                                            onChange={(e) =>
+                                                handleMenuChange(
+                                                    index,
+                                                    e.target.value
+                                                )
+                                            }
+                                        ></SmallInput>
+                                        <FixedText></FixedText>
+                                        <SmallerInput
+                                            placeholder="가격을 입력하세요."
+                                            type="text"
+                                            onChange={(e) =>
+                                                handlePriceChange(
+                                                    index,
+                                                    e.target.value
+                                                )
+                                            }
+                                        ></SmallerInput>
+                                        <FixedText>원</FixedText>
+                                    </InputsWrapper>
+                                ))}
+                                <InputsWrapper>
+                                    <AddButton
+                                        onClick={() => {
+                                            setNumMenus((prev) => prev + 1);
+                                            addMenu();
+                                            addPrice();
+                                        }}
+                                    >
+                                        <ImageFlex>
+                                            <PlusImageContainer />
+                                        </ImageFlex>
+                                    </AddButton>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>시간</Title>
+                                <LocalizationProvider
+                                    dateAdapter={AdapterDayjs}
+                                >
+                                    <MultiSectionDigitalClockWithoutScroll
+                                        onChange={(e) => {
+                                            setHour(e.$H);
+                                            setMinute(e.$m);
+                                        }}
+                                    />
+                                </LocalizationProvider>
+                            </FieldWrapper>
+                            <FieldWrapper>
+                                <Title>테이블</Title>
+                                {[...Array(numTableGroups).keys()].map(
+                                    (index) => (
+                                        <InputsWrapper key={index}>
+                                            <SmallInput
+                                                type="text"
+                                                onChange={(e) =>
+                                                    handleSeatsPerTableChange(
+                                                        index,
+                                                        e.target.value
+                                                    )
+                                                }
+                                            ></SmallInput>
+                                            <FixedText>인석</FixedText>
+                                            <SmallerInput
+                                                type="text"
+                                                onChange={(e) =>
+                                                    handleNumTablesPerGroupChange(
+                                                        index,
+                                                        e.target.value
+                                                    )
+                                                }
+                                            ></SmallerInput>
+                                            <FixedText>테이블</FixedText>
+                                        </InputsWrapper>
+                                    )
+                                )}
+                                <InputsWrapper>
+                                    <AddButton
+                                        onClick={() => {
+                                            setNumTableGroups(
+                                                (prev) => prev + 1
+                                            );
+                                            addSeatsPerTable();
+                                            addNumTablesPerGroup();
+                                        }}
+                                    >
+                                        <ImageFlex>
+                                            <PlusImageContainer />
+                                        </ImageFlex>
+                                    </AddButton>
+                                </InputsWrapper>
+                            </FieldWrapper>
+                            <Button onClick={() => setPage(0)}>
+                                이전 페이지
+                            </Button>
+                            <Button>등록</Button>
+                        </>
                     )}
-                    style={{ "margin-left": "2%" }}
-                  ></SmallerInput>
-                </InputsWrapper>
-              </FieldWrapper>
-              <Button onClick={() => setPage(1)}>다음 페이지</Button>
-            </>
-          ) : (
-            <>
-              <FieldWrapper>
-                <Title>상호명</Title>
-                <InputsWrapper>
-                  <BigInput
-                    placeholder="식당의 상호, 식당의 이름을 작성해 주세요."
-                    type="text"
-                    value={shopName}
-                    onChange={(e) => setShopName(e.target.value)}
-                  ></BigInput>
-                </InputsWrapper>
-              </FieldWrapper>
-              <FieldWrapper>
-                        <Title>주소</Title>
-                        <InputsWrapper>
-                            <BigInput
-                                placeholder="식당의 위치를 작성해 주세요."
-                                type="text"
-                                value={address}
-                                onChange={handleAddressChange}
-                            ></BigInput>
-                            <RestaurantSearch
-                                keyword={address}
-                                triggerSearch={triggerSearch}
-                                setTriggerSearch={setTriggerSearch}
-                            />
-                        </InputsWrapper>
-                    </FieldWrapper>
-              <FieldWrapper>
-                <Title>메뉴</Title>
-                {[...Array(numMenus).keys()].map((index) => (
-                  <InputsWrapper key={index}>
-                    <SmallInput
-                      placeholder="메뉴를 입력하세요."
-                      type="text"
-                      onChange={(e) => handleMenuChange(index, e.target.value)}
-                    ></SmallInput>
-                    <FixedText></FixedText>
-                    <SmallerInput
-                      placeholder="가격을 입력하세요."
-                      type="text"
-                      onChange={(e) => handlePriceChange(index, e.target.value)}
-                    ></SmallerInput>
-                    <FixedText>원</FixedText>
-                  </InputsWrapper>
-                ))}
-                <InputsWrapper>
-                  <AddButton
-                    onClick={() => {
-                      setNumMenus((prev) => prev + 1);
-                      addMenu();
-                      addPrice();
-                    }}
-                  >
-                    <ImageFlex>
-                      <PlusImageContainer />
-                    </ImageFlex>
-                  </AddButton>
-                </InputsWrapper>
-              </FieldWrapper>
-              <FieldWrapper>
-                <Title>시간</Title>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <MultiSectionDigitalClockWithoutScroll
-                    onChange={(e) => {
-                      setHour(e.$H);
-                      setMinute(e.$m);
-                    }}
-                  />
-                </LocalizationProvider>
-              </FieldWrapper>
-              <FieldWrapper>
-                <Title>테이블</Title>
-                {[...Array(numTableGroups).keys()].map((index) => (
-                  <InputsWrapper key={index}>
-                    <SmallInput
-                      type="text"
-                      onChange={(e) =>
-                        handleSeatsPerTableChange(index, e.target.value)
-                      }
-                    ></SmallInput>
-                    <FixedText>인석</FixedText>
-                    <SmallerInput
-                      type="text"
-                      onChange={(e) =>
-                        handleNumTablesPerGroupChange(index, e.target.value)
-                      }
-                    ></SmallerInput>
-                    <FixedText>테이블</FixedText>
-                  </InputsWrapper>
-                ))}
-                <InputsWrapper>
-                  <AddButton
-                    onClick={() => {
-                      setNumTableGroups((prev) => prev + 1);
-                      addSeatsPerTable();
-                      addNumTablesPerGroup();
-                    }}
-                  >
-                    <ImageFlex>
-                      <PlusImageContainer />
-                    </ImageFlex>
-                  </AddButton>
-                </InputsWrapper>
-              </FieldWrapper>
-              <Button onClick={() => setPage(0)}>이전 페이지</Button>
-              <Button>등록</Button>
-            </>
-          )}
-        </RegisterFlex>
-      </RegisterFormContainer>
-    </>
-  );
+                </RegisterFlex>
+            </RegisterFormContainer>
+        </>
+    );
 };
 export default OwnerRegister;
 
@@ -286,12 +327,12 @@ const BackgroundCircle = styled.div`
 `;
 
 const RegisterFormContainer = styled.div`
-  width: 80%;
-  margin: 25vh auto 25vh auto;
-  background-color: #eaeaea;
-  border: 5px solid #4f518c;
-  box-sizing: border-box;
-  border-radius: 8px;
+    width: 80%;
+    margin: 25vh auto 25vh auto;
+    background-color: #eaeaea;
+    border: 5px solid #4f518c;
+    box-sizing: border-box;
+    border-radius: 8px;
 `;
 
 const RegisterFlex = styled.div`
@@ -391,16 +432,16 @@ const SmallerInput = styled.input`
 `;
 
 const FixedText = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #4f518c;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  width: 5%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4f518c;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 5%;
+    height: 100%;
 `;
 
 const VerifyButton = styled.button`
@@ -456,35 +497,35 @@ const PlusImageContainer = styled.div`
 `;
 
 const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70%;
-  margin: 0 auto;
-  height: 15%;
-  background-color: #4f518c;
-  border-radius: 3px;
-  && {
-    color: #fff;
-    font-family: "GowunBatang-Regular";
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    height: 15%;
+    background-color: #4f518c;
+    border-radius: 3px;
+    && {
+        color: #fff;
+        font-family: 'GowunBatang-Regular';
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
 `;
 const MultiSectionDigitalClockWithoutScroll = styled(MultiSectionDigitalClock)`
-  * {
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: transparent transparent; /* Firefox */
+    * {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: transparent transparent; /* Firefox */
 
-    /* For WebKit browsers (Chrome, Safari) */
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
+        /* For WebKit browsers (Chrome, Safari) */
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: transparent;
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
     }
-  }
 `;
