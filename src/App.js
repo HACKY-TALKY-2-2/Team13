@@ -1,10 +1,10 @@
 import React from 'react';
-import CustomerMain from './pages/Customer_Main';
+import CustomerSearch from './pages/Customer_Search';
 
 function App() {
     return (
         <>
-            <CustomerMain />
+            <CustomerSearch />
         </>
     );
 }
