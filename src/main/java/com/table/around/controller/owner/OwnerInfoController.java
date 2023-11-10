@@ -1,4 +1,4 @@
-package com.table.around.controller.Owner;
+package com.table.around.controller.owner;
 
 import com.table.around.domain.owner.request.SignUpForm;
 import com.table.around.service.owner.OwnerService;

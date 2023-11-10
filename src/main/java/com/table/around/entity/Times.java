@@ -2,10 +2,7 @@ package com.table.around.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalTime;
 import java.time.DayOfWeek;
@@ -15,6 +12,7 @@ import java.time.DayOfWeek;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class Times {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
