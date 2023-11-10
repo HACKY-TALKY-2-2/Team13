@@ -9,13 +9,13 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@jakarta.persistence.Table(name = "table_mng")
+@jakarta.persistence.Table(name = "cooktable")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @DynamicInsert
 @DynamicUpdate
-public class Table {
+public class Cooktable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
