@@ -22,7 +22,7 @@ public class Menu {
     private Long id;
 
     @Column(length = 100, nullable = false)
-    private String name;
+    private String menuName;
 
     @Column(columnDefinition = "INT UNSIGNED")
     private Integer price;

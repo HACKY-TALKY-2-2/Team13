@@ -21,13 +21,13 @@ public class Owner {
     private Long id;
 
     @Column(length = 100, nullable = false)
-    private String name;
+    private String ownerName;
 
     @Column(length = 250, nullable=false)
     private String email;
 
     @Column(length = 20, nullable = false)
-    private String password;
+    private String ownerPassword;
 
     @Column(nullable = false)
     private String ownerId;
