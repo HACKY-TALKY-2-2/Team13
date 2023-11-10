@@ -26,4 +26,10 @@ public class OwnerInfoController {
         return ownerService.signUp(signUpForm);
     }
 
+    @ApiOperation(value = "로그인")
+    @PostMapping("/sign-in")
+    public ResponseEntity signIn(@RequestBody SignUpForm signUpForm) {
+        return ownerService.signUp(signUpForm);
+    }
+
 }

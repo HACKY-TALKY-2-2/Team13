@@ -1,7 +1,9 @@
 package com.around.table.service.owner;
 
 import com.around.table.domain.owner.OwnerRepository;
+import com.around.table.domain.owner.request.SignInForm;
 import com.around.table.domain.owner.request.SignUpForm;
+import com.around.table.domain.owner.responce.OwnerInfoForm;
 import com.around.table.entity.Owner;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,8 @@ public class OwnerServiceImpl implements OwnerService{
     private final OwnerRepository ownerRepository;
 
 
+
+
     @Override
     public ResponseEntity signUp(SignUpForm signUpForm) {
         Optional<Owner> owner = Optional.ofNullable(Owner.builder()
@@ -33,5 +37,17 @@ public class OwnerServiceImpl implements OwnerService{
             return new ResponseEntity("Fail to Sign Up", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity("Success to Sign up", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity SignIn(SignInForm signInForm) {
+        Optional<Owner> owner = Optional.ofNullable(ownerRepository.findByOwnerId(signInForm.getOwnerId()));
+
+        if(signInForm.getPassword().equals(owner.get().getOwnerPassword())){
+            OwnerInfoForm ownerInfoForm = OwnerInfoForm.builder()
+                    .ownerId(owner.get().getOwnerKey())
+                    .storeId()
+                    .build()
+        }
     }
 }

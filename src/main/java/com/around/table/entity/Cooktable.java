@@ -25,9 +25,6 @@ public class Cooktable {
     private Integer seatCount;
 
     @Column(nullable = false)
-    private Integer tableCount;
-
-    @Column(nullable = false)
     private boolean isAvailable;
 
     @ManyToOne
