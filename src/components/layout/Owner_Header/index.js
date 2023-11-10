@@ -15,7 +15,9 @@ const OwnerHeader = () => {
           onChange={(e) => setIsOpen(e.target.checked)}
         />
       </SwitchWrapper>
-      <FixStoreInfo>가게 정보 수정</FixStoreInfo>
+      <NoDecorationLink to="/edit-store-info">
+        <FixStoreInfo>가게 정보 수정</FixStoreInfo>
+      </NoDecorationLink>
     </HeaderWrapper>
   );
 };
@@ -55,5 +57,13 @@ const FixStoreInfo = styled.div`
   margin: 3vh 0;
   text-align: center;
   border-bottom: 2px solid #d5d5d5;
+  width: 100%;
+`;
+
+const NoDecorationLink = styled(Link)`
+  && {
+    text-decoration: none;
+  }
+  display: block;
   width: 25%;
 `;
