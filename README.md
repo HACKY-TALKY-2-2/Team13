@@ -22,7 +22,9 @@
 - back-end : `Springboot`
 - database : `MySql`
 - devOps : `AWS`
+- Server : [Swagger] ([http://43.200.235.98:8080/swagger-ui.html#/store-controller])
 - design : [Figma] ([https://www.figma.com/file/IQfv0XvgbqKIaglDEPHwJv/Untitled?type=design&node-id=13%3A160&mode=design&t=rZz2iBysHJplx2CZ-1](https://user-images.githubusercontent.com/76930385/282193690-6418a89b-f1f0-406d-bc11-81d4e0033312.png))
+
 
 ![initial](https://user-images.githubusercontent.com/76930385/282193690-6418a89b-f1f0-406d-bc11-81d4e0033312.png)
 
