@@ -29,5 +29,5 @@ public class Cooktable {
 
     @ManyToOne
     @JoinColumn(name = "storeId")
-    private Store store;
+    private Store storeId;
 }

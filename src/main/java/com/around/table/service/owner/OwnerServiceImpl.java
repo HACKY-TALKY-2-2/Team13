@@ -5,6 +5,7 @@ import com.around.table.domain.owner.request.SignInForm;
 import com.around.table.domain.owner.request.SignUpForm;
 import com.around.table.domain.owner.responce.OwnerInfoForm;
 import com.around.table.entity.Owner;
+import com.around.table.service.store.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,10 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class OwnerServiceImpl implements OwnerService{
+public class OwnerServiceImpl implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-
-
-
+    private final StoreService storeService;
 
     @Override
     public ResponseEntity signUp(SignUpForm signUpForm) {
@@ -31,7 +30,7 @@ public class OwnerServiceImpl implements OwnerService{
                 .email(signUpForm.getEmail())
                 .build());
 
-        try{
+        try {
             ownerRepository.save(owner.get());
         } catch (Exception e) {
             return new ResponseEntity("Fail to Sign Up", HttpStatus.BAD_REQUEST);
@@ -40,14 +39,19 @@ public class OwnerServiceImpl implements OwnerService{
     }
 
     @Override
-    public ResponseEntity SignIn(SignInForm signInForm) {
+    public ResponseEntity<OwnerInfoForm> signIn(SignInForm signInForm) {
         Optional<Owner> owner = Optional.ofNullable(ownerRepository.findByOwnerId(signInForm.getOwnerId()));
+        OwnerInfoForm ownerInfoForm = new OwnerInfoForm();
 
-        if(signInForm.getPassword().equals(owner.get().getOwnerPassword())){
-            OwnerInfoForm ownerInfoForm = OwnerInfoForm.builder()
+        if (signInForm.getPassword().equals(owner.get().getOwnerPassword())) {
+            Long storeId = storeService.getStoreId(owner.get().getOwnerKey());
+
+            ownerInfoForm = OwnerInfoForm.builder()
                     .ownerId(owner.get().getOwnerKey())
-                    .storeId()
-                    .build()
+                    .storeId(storeId)
+                    .build();
         }
+
+        return new ResponseEntity(ownerInfoForm, HttpStatus.OK);
     }
 }

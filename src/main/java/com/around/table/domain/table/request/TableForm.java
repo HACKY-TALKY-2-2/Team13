@@ -1,4 +1,4 @@
-package com.around.table.domain.owner.request;
+package com.around.table.domain.table.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,11 +7,11 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-//@NoArgsConstructor
 @RequiredArgsConstructor
-public class SignInForm {
+public class TableForm {
 
-    private String ownerId;
-    private String password;
+    private Integer tableId;
+    private Integer seatCount;
+    private Integer tableCount;
 
 }
