@@ -20,14 +20,14 @@ public class Cooktable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "INT UNSIGNED")
-    private int seatCount;
+    @Column(columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
+    private Integer seatCount;
 
-    @Column(columnDefinition = "INT UNSIGNED")
+    @Column(columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
     private Integer tableCount;
 
-    @Column()
-    private Boolean isAvailable;
+    @Column(columnDefinition = "DEFAULT TRUE", nullable = false)
+    private boolean isAvailable;
 
     @ManyToOne
     @JoinColumn(name = "storeId")

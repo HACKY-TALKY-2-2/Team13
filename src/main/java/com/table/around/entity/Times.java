@@ -24,8 +24,8 @@ public class Times {
     @JoinColumn(name = "storeId", nullable = false)
     private Store store;
 
-    @Column(nullable = false)
-    private int dayOfWeek; // 0: Monday, 1: Tuesday, ..., 6: Sunday
+    @Column(nullable = false, columnDefinition = "INT UNSIGNED")
+    private Integer dayOfWeek; // 0: Monday, 1: Tuesday, ..., 6: Sunday
 
     @Column(nullable = false)
     private LocalTime openingTime;
@@ -33,15 +33,15 @@ public class Times {
     @Column(nullable = false)
     private LocalTime closingTime;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "DEFAULT FALSE")
     private boolean isDayOff;
 
-    @Column(nullable = false)
+    @Column(name = "break_start_time")
     private LocalTime breakStartTime;
 
-    @Column(nullable = false)
+    @Column(name = "break_end_time")
     private LocalTime breakEndTime;
 
-    @Column(nullable = false)
+    @Column(name = "last_order_time")
     private LocalTime lastOrderTime;
 }

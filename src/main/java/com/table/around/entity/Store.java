@@ -21,14 +21,19 @@ public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 100, nullable = false)
+
+    @Column(length = 20, nullable = false)
     private String storeName;
-    @Column(length = 250, nullable=false)
+
+    @Column(length = 150, nullable=false)
     private String address;
-    @Column(nullable = false)
+
+    @Column(nullable = false, columnDefinition = "DEFAULT 0")
     private Float rating;
-    @Column(nullable = false)
+
+    @Column(nullable = false, columnDefinition = "DEFAULT FALSE")
     private Boolean isOpen;
+
     @Column(nullable = false)
     private String imagePath;
 

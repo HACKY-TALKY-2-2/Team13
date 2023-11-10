@@ -21,13 +21,13 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 20, nullable = false)
     private String menuName;
 
-    @Column(columnDefinition = "INT UNSIGNED")
+    @Column(columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
     private Integer price;
 
-    @Column()
+    @Column(nullable = false, columnDefinition = "DEFAULT TRUE")
     private Boolean isOrderable;
 
     @ManyToOne
