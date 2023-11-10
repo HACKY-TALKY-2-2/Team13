@@ -20,15 +20,15 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 20, nullable = false)
     private String ownerName;
 
-    @Column(length = 250, nullable=false)
+    @Column(length = 100, nullable = false)
     private String email;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 30, nullable = false)
     private String ownerPassword;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String ownerId;
 }
