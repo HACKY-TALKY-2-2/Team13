@@ -1,7 +1,6 @@
 package com.table.around.entity;
 
-import jakarta.persistence.*;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;

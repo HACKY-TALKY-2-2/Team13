@@ -1,11 +1,9 @@
 package com.table.around.entity;
 
-import jakarta.persistence.*;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 import lombok.*;
 
 import java.time.LocalTime;
-import java.time.DayOfWeek;
 
 @Entity
 @Table(name = "times")

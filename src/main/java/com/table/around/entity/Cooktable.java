@@ -1,6 +1,6 @@
 package com.table.around.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -8,7 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.table.around.entity.Store;
 
 @Entity
-@jakarta.persistence.Table(name = "cooktable")
+@javax.persistence.Table(name = "cooktable")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,9 +22,6 @@ public class Cooktable {
 
     @Column(columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
     private Integer seatCount;
-
-    @Column(columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
-    private Integer tableCount;
 
     @Column(columnDefinition = "DEFAULT TRUE", nullable = false)
     private boolean isAvailable;
