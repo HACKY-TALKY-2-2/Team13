@@ -7,9 +7,15 @@ import StoreInfo from '../../components/container/storeInfo/index.js';
 function CustomerSearch() {
     const [isSearchActive, setSearchActive] = useState(false);
     const [isStoreActive, setStoreActive] = useState(false);
+
     const toggleSearch = () => {
         setSearchActive(!isSearchActive);
+        setStoreActive(false);
     };
+    const toggleStoreInfo = () => {
+        setStoreActive(!isStoreActive);
+    };
+
     return (
         <>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -17,7 +23,9 @@ function CustomerSearch() {
                     style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                     <Nav onSearchClick={toggleSearch} />
-                    {isSearchActive && <SearchFrame />}
+                    {isSearchActive && (
+                        <SearchFrame onSearchStoreInfoClick={toggleStoreInfo} />
+                    )}
                     {isStoreActive && <StoreInfo />}
                 </div>
                 <Map />

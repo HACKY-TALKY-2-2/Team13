@@ -1,6 +1,7 @@
-function SearchStoreInfo() {
+function SearchStoreInfo({ onClick }) {
     return (
         <div
+            onClick={onClick}
             style={{
                 display: 'flex', // 부모 컨테이너를 flex 컨테이너로 설정
                 justifyContent: 'space-between', // 내부 요소를 양 끝으로 정렬

@@ -1,7 +1,7 @@
 import SearchBar from './searchBar/index.js';
 import SearchStoreInfo from './searchStoreInfo/index.js';
 
-function SearchFrame() {
+function SearchFrame({ onSearchStoreInfoClick }) {
     return (
         <div
             style={{
@@ -12,9 +12,9 @@ function SearchFrame() {
             }}
         >
             <SearchBar />
-            <SearchStoreInfo />
-            <SearchStoreInfo />
-            <SearchStoreInfo />
+            <SearchStoreInfo onClick={onSearchStoreInfoClick} />
+            <SearchStoreInfo onClick={onSearchStoreInfoClick} />
+            <SearchStoreInfo onClick={onSearchStoreInfoClick} />
         </div>
     );
 }
