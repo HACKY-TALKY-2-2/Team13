@@ -1,6 +1,7 @@
-function SearchButton() {
+function SearchButton({ onClick }) {
     return (
         <button
+            onClick={onClick}
             style={{
                 width: '29.63px',
                 height: '25.42px',

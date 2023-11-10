@@ -3,7 +3,7 @@ import SearchButton from '../../button/searchButton';
 import MyLocationButton from '../../button/myLocationButton';
 import HomeButton from '../../button/homeButton';
 import ProfileButton from '../../button/profileButton';
-function Nav() {
+function Nav({ onSearchClick }) {
     return (
         <>
             <div
@@ -40,6 +40,7 @@ function Nav() {
                     }}
                 />
                 <SearchButton
+                    onClick={onSearchClick}
                     style={{
                         width: 58,
                         height: 52,

@@ -34,7 +34,9 @@ function Map() {
             console.error('Cannot retrieve your location');
         };
 
-        navigator.geolocation.getCurrentPosition(success, error);
+        navigator.geolocation.getCurrentPosition(success, error, {
+            enableHighAccuracy: true,
+        });
     }, []);
 
     return (
