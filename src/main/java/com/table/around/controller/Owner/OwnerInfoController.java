@@ -5,7 +5,6 @@ import com.table.around.service.owner.OwnerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,4 +25,5 @@ public class OwnerInfoController {
     public ResponseEntity signUp(@RequestBody SignUpForm signUpForm) {
         return ownerService.signUp(signUpForm);
     }
+
 }

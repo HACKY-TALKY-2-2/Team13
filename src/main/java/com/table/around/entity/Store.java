@@ -1,6 +1,5 @@
-package com.example.hackexercise.entity;
+package com.table.around.entity;
 
-import java.util.List;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -9,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+import java.util.List;
+
 
 @Entity
 @Table(name = "store")

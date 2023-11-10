@@ -1,4 +1,4 @@
-package com.example.hackexercise.entity;
+package com.table.around.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.table.around.entity.Store;
 
 @Entity
 @jakarta.persistence.Table(name = "cooktable")
