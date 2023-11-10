@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const RestaurantSearch = () => {
-    const [keyword, setKeyword] = useState('');
+const RestaurantSearch = ({ keyword, triggerSearch, setTriggerSearch }) => {
     const [location, setLocation] = useState({});
+
+    useEffect(() => {
+        if (triggerSearch) {
+            handleSearch();
+            setTriggerSearch(false); // Reset the trigger
+        }
+    }, [keyword, triggerSearch, setTriggerSearch]);
 
     const handleSearch = async () => {
         try {
@@ -35,13 +41,6 @@ const RestaurantSearch = () => {
 
     return (
         <div>
-            <input
-                type="text"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                placeholder="음식점 이름을 입력하세요"
-            />
-            <button onClick={handleSearch}>검색</button>
             {location.name && (
                 <div>
                     <h3>{location.name}</h3>
