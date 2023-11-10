@@ -1,7 +1,12 @@
+import React from 'react';
 import CustomerMain from './pages/Customer_Main';
 
 function App() {
-    return <CustomerMain />;
+    return (
+        <>
+            <CustomerMain />
+        </>
+    );
 }
 
 export default App;
