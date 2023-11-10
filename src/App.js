@@ -1,10 +1,12 @@
 import React from 'react';
-import CustomerSearch from './pages/Customer_Search';
+import AddressSearch from './components/container/addressSearch/AddressSearch';
+import RestaurantSearch from './components/container/addressSearch/RestaurantSearch';
 
 function App() {
     return (
         <>
-            <CustomerSearch />
+            <AddressSearch />
+            <RestaurantSearch />
         </>
     );
 }
