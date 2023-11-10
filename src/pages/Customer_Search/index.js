@@ -8,8 +8,8 @@ function CustomerSearch() {
         <>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Nav />
-                <Map />
                 <SearchFrame />
+                <Map />
             </div>
         </>
     );
