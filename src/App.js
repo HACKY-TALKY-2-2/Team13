@@ -1,14 +1,9 @@
-import React from 'react';
-import AddressSearch from './components/container/addressSearch/AddressSearch';
-import RestaurantSearch from './components/container/addressSearch/RestaurantSearch';
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import router from "./routes/routing";
 
 function App() {
-    return (
-        <>
-            <AddressSearch />
-            <RestaurantSearch />
-        </>
-    );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
